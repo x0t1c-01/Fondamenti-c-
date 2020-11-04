@@ -1,0 +1,106 @@
+
+#include<iostream> 
+#include<cstring>
+using namespace std;
+
+bool control(string a,string b,int i) {
+    bool cond=false;
+    int dim1=a.length()-1;
+    int dim2=b.length()-1;
+    if(i>dim1)
+        return false;
+    if(a.compare(i,dim1-i+1,b,0,dim1-i+1)==0)
+        cond=true;
+    if(cond)
+        return true;
+    else
+        control(a,b,i+1);
+
+}
+
+
+int main(){
+    char frase[300];
+    bool cond= false;
+    cin.getline(frase,300,'.');
+    
+char *p=strtok(frase," ");
+    char *arr[100];
+    int dim=0;
+    while(p!=NULL){
+        arr[dim++]=p;
+        p=strtok(NULL," ");
+    }
+    for(int i=0;i<dim-1;i++){
+        if(control(arr[i],arr[i+1],0))
+                cond=true;
+        }
+    
+
+    if(cond)
+        cout<<"OK";
+    else
+        cout<<"NO";
+
+
+
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
